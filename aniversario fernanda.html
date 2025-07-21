@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz Aniversário 🎂</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url("fernandaaniversario.jpeg")no-repeat center center;
+      background-size: auto
+      height: 120vh;
+      overflow: hidden;
+      text-align: center;
+      color: rgb(500, 500, 500);
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-top: 60px;
+      color: #e91e63;
+    }
+
+    p {
+      font-size: 1.3em;
+      max-width: 600px;
+      margin: 20px auto;
+      line-height: 1.6;
+      background-color:
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .coracoes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .coracao {
+      position: absolute;
+      color: #e91e63;
+      animation: cair 6s linear infinite;
+      font-size: 24px;
+      user-select: none;
+    }
+
+    @keyframes cair {
+      0% {
+        transform: translateY(-10%) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(50%) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Feliz Aniversário, Fernanda! 🎉</h1>
+  <p>
+    Hoje é o seu dia, e eu quero te desejar tudo de mais lindo que a vida pode oferecer!<br>
+    Que você continue sendo essa pessoa maravilhosa, cheia de luz, amor e alegria.<br><br>
+    Te desejo saúde, paz, sucesso e muitos sorrisos sinceros!<br>
+    Obrigado por existir e iluminar o mundo com seu jeitinho tão especial! 💖<br><br>
+    Com carinho,<br>
+    De alguém que gosta muito de você e que tem uma péssima iniciação na programação, e percebeu que fazer um pro Dia dos Namorados e pro seu aniversário não me faz programador 🌹
+  </p>
+
+  <div class="coracoes"></div>
+
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2023/03/06/audio_746e1214a7.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <script>
+    const container = document.querySelector('.coracoes');
+
+    function criarCoracao() {
+      const coracao = document.createElement('div');
+      coracao.classList.add('coracao');
+      coracao.style.left = Math.random() * 100 + 'vw';
+      coracao.style.animationDuration = (Math.random() * 2 + 4) + 's';
+      coracao.textContent = '💖';
+      container.appendChild(coracao);
+
+      setTimeout(() => {
+        coracao.remove();
+      }, 6000);
+    }
+
+    setInterval(criarCoracao, 300);
+  </script>
+
+</body>
+</html>
